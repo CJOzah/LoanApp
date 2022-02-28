@@ -1,7 +1,7 @@
 
 import 'package:country_pickers/country.dart';
 import 'package:country_pickers/country_pickers.dart';
-import 'package:credit_direct/utils.dart';
+import 'package:credit_direct/utilities/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

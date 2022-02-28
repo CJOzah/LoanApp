@@ -1,6 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:credit_direct/onboard/onboard_page.dart';
-import 'package:credit_direct/size_config.dart';
+import 'package:credit_direct/utilities/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -56,7 +56,7 @@ class _SplashScreeenState extends State<SplashScreeen> {
             alignment: AlignmentDirectional.center,
             children: [
               AnimatedPositioned(
-                bottom: selected ? SizeConfig.sW! * 140 : SizeConfig.sW! * 180,
+                bottom: selected ? SizeConfig.sH! * 75 : SizeConfig.sH! * 85,
                 duration: const Duration(seconds: 2),
                 curve: Curves.fastOutSlowIn,
                 child: Padding(
@@ -71,7 +71,7 @@ class _SplashScreeenState extends State<SplashScreeen> {
                 ),
               ),
               AnimatedPositioned(
-                bottom: selected ? SizeConfig.sW! * 120 : SizeConfig.sW! * 160,
+                bottom: selected ? SizeConfig.sH! * 65 : SizeConfig.sH! * 75,
                 onEnd: () {
                   setState(() {
                     containerColor = true;
@@ -101,9 +101,8 @@ class _SplashScreeenState extends State<SplashScreeen> {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const OnBoardScreen(
-                                  icon: "icon",
-                                ))
-                                );
+                                 
+                                )));
                   });
                 },
                 curve: Curves.fastOutSlowIn,
@@ -188,7 +187,7 @@ class _SplashScreeenState extends State<SplashScreeen> {
                     )
                   : const SizedBox(),
               AnimatedPositioned(
-                top: selected ? SizeConfig.sW! * 120 : SizeConfig.sW! * 160,
+                top: selected ? SizeConfig.sH! * 65 : SizeConfig.sH! * 75,
                 curve: Curves.fastOutSlowIn,
                 duration: const Duration(seconds: 2),
                 child: Padding(
@@ -203,7 +202,7 @@ class _SplashScreeenState extends State<SplashScreeen> {
                 ),
               ),
               AnimatedPositioned(
-                top: selected ? SizeConfig.sW! * 140 : SizeConfig.sW! * 180,
+                top: selected ? SizeConfig.sH! * 75 : SizeConfig.sH! * 85,
                 curve: Curves.fastOutSlowIn,
                 duration: const Duration(seconds: 2),
                 child: Padding(

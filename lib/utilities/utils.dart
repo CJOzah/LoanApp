@@ -2,8 +2,8 @@
 import 'dart:io';
 
 import 'package:country_pickers/country_pickers.dart';
-import 'package:credit_direct/credit_direct.dart';
-import 'package:credit_direct/size_config.dart';
+import 'package:credit_direct/utilities/credit_direct.dart';
+import 'package:credit_direct/utilities/size_config.dart';
 import 'package:credit_direct/theme/theme_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -53,6 +53,7 @@ class Buttons extends StatelessWidget {
       onPressed: onPressed!,
       child: Text(text,
           style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                fontSize: 18,
                 color: isDarkMode ? Colors.white : textColor,
               )),
     );
@@ -96,7 +97,7 @@ class CustTextField extends StatelessWidget {
             borderRadius: BorderRadius.circular(12.0)),
         fillColor: Colors.white,
         filled: true,
-        hintText: "Verificationr",
+        hintText: text,
         hintStyle: const TextStyle(
           fontSize: 15.0,
           color: Color(0xFF757575),
@@ -198,26 +199,32 @@ class TextFieldWithCountryFlag extends StatelessWidget {
                 height: 50.0,
                 child: Row(
                   children: <Widget>[
-                    const Icon(
-                      CupertinoIcons.person,
-                      color: Colors.black,
-                    ),
-                    Text(
-                      "+234",
-                      style: theme.textTheme.bodyText1!
-                          .copyWith(fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(
-                      width: 5.0,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        CreditDirectData().openCountryPickerDialog(context);
-                      },
-                      child: const Icon(
-                        FontAwesomeIcons.angleDown,
+                    const Expanded(
+                      flex: 2,
+                      child: Icon(
+                        CupertinoIcons.person,
                         color: Colors.black,
-                        size: 14,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 4,
+                      child: Text(
+                        "+234",
+                        style: theme.textTheme.bodyText1!
+                            .copyWith(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: InkWell(
+                        onTap: () {
+                          CreditDirectData().openCountryPickerDialog(context);
+                        },
+                        child: const Icon(
+                          FontAwesomeIcons.angleDown,
+                          color: Colors.black,
+                          size: 14,
+                        ),
                       ),
                     ),
                   ],

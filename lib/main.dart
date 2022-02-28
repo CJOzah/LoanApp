@@ -1,6 +1,6 @@
-import 'package:credit_direct/credit_direct.dart';
-import 'package:credit_direct/home.dart';
-import 'package:credit_direct/nav_bar.dart';
+import 'package:credit_direct/navbar%20Screens/virtual_cards_Screens.dart';
+import 'package:credit_direct/utilities/credit_direct.dart';
+import 'package:credit_direct/utilities/nav_bar.dart';
 import 'package:credit_direct/onboard/onboard_page.dart';
 import 'package:credit_direct/sign_up_screens/sign_up_details_screen.dart';
 import 'package:credit_direct/sign_up_screens/sign_up_otp_screen.dart';
@@ -11,6 +11,8 @@ import 'package:credit_direct/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+
+import 'navbar Screens/home tabs/home.dart';
 
 int? isviewed;
 Future<void> main() async {
@@ -52,6 +54,7 @@ class CreditDirect extends StatelessWidget {
                   SignUpDetailsScreen.id: (context) =>
                       const SignUpDetailsScreen(),
                   WelcomeScreen.id: (context) => const WelcomeScreen(),
+                  VirtualCardsScreen.id: (context) => const VirtualCardsScreen(),
                 }),
           );
         },

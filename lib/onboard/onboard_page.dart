@@ -1,9 +1,7 @@
 import 'dart:async';
-
-import 'package:credit_direct/onboard/onboard_model.dart';
 import 'package:credit_direct/sign_up_screens/sign_up_phone_number_screen.dart';
-import 'package:credit_direct/size_config.dart';
-import 'package:credit_direct/utils.dart';
+import 'package:credit_direct/utilities/size_config.dart';
+import 'package:credit_direct/utilities/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -13,8 +11,9 @@ import '../../theme/theme_provider.dart';
 
 class OnBoardScreen extends StatefulWidget {
   static String id = "onboardScreen";
-  final String? icon;
-  const OnBoardScreen({Key? key, this.icon}) : super(key: key);
+  const OnBoardScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   _OnBoardScreenState createState() => _OnBoardScreenState();
@@ -28,9 +27,22 @@ class _OnBoardScreenState extends State<OnBoardScreen>
     "images/Happy Woman with money.png",
     "images/Coin image investment.png",
     "images/Coin image.png",
+    "images/Happy Woman with money.png",
+    "images/Coin image investment.png",
+    "images/Coin image.png",
   ];
-  List<String> image2 = ["images/woman_with_money_path.svg", "", ""];
+  List<String> image2 = [
+    "images/woman_with_money_path.svg",
+    "",
+    "",
+    "images/woman_with_money_path.svg",
+    "",
+    "",
+  ];
   List<double>? width = [
+    SizeConfig.sW! * 40,
+    SizeConfig.sW! * 100,
+    SizeConfig.sW! * 100,
     SizeConfig.sW! * 40,
     SizeConfig.sW! * 100,
     SizeConfig.sW! * 100
@@ -38,9 +50,19 @@ class _OnBoardScreenState extends State<OnBoardScreen>
   List<String>? description = [
     "Get instant pay to fund your needs with peace of mind",
     "Get instant pay to fund your needs with peace of mind",
-    "Get instant pay to fund your needs with peace of mind "
+    "Get instant pay to fund your needs with peace of mind ",
+    "Get instant pay to fund your needs with peace of mind",
+    "Get instant pay to fund your needs with peace of mind",
+    "Get instant pay to fund your needs with peace of mind ",
   ];
-  List<String>? title = ["Fund Lifestyle", "Smart Investment", "Save with Us"];
+  List<String>? title = [
+    "Fund Lifestyle",
+    "Smart Investment",
+    "Save with Us",
+    "Fund Lifestyle",
+    "Smart Investment",
+    "Save with Us",
+  ];
 
   Timer? _timer;
   int? _currentIndex = 0;
@@ -54,11 +76,10 @@ class _OnBoardScreenState extends State<OnBoardScreen>
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: SystemUiOverlay.values);
 
-    _timer = Timer.periodic(const Duration(milliseconds: 2900), (timer) async {
+    _timer = Timer.periodic(const Duration(milliseconds: 2950), (timer) async {
       if (mounted) {
         setState(() {
-          if (_currentIndex! + 1 == 3) {
-            // _currentIndex = 0;
+          if (_currentIndex! + 1 == title!.length) {
             _controller.stop();
           } else {
             setState(() {
@@ -223,7 +244,7 @@ class _OnBoardScreenState extends State<OnBoardScreen>
                   ),
                 ),
                 SizedBox(
-                  height: SizeConfig.sH! * 12,
+                  height: SizeConfig.sH! * 5,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
@@ -259,7 +280,7 @@ class _OnBoardScreenState extends State<OnBoardScreen>
                       "Login",
                       textAlign: TextAlign.center,
                       style: theme.textTheme.bodyText2!
-                          .copyWith(color: Colors.red),
+                          .copyWith(color: theme.secondaryHeaderColor),
                     ),
                   ],
                 ),
@@ -309,18 +330,18 @@ class _OnboardWidgetState extends State<OnboardWidget> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return SizedBox(
-      height: 400,
+      height: SizeConfig.sH! * 72,
       width: double.infinity,
       child: Stack(
         alignment: AlignmentDirectional.center,
         children: [
           AnimatedPositioned(
-            top: selected ? -50 : -80,
+            top: selected ? SizeConfig.sH! * 0 : SizeConfig.sH! * -10,
             duration: const Duration(seconds: 1),
             child: Image.asset(
               widget.image!,
               fit: BoxFit.fill,
-              height: 350,
+              height: SizeConfig.sH! * 50,
               width: widget.width,
             ),
           ),
@@ -329,9 +350,9 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                   width: double.infinity,
                 )
               : Padding(
-                  padding: const EdgeInsets.only(
+                  padding: EdgeInsets.only(
                     right: 20.0,
-                    top: 115,
+                    top: SizeConfig.sH! * 20,
                   ),
                   child: Hero(
                       tag: "icon",
@@ -342,20 +363,21 @@ class _OnboardWidgetState extends State<OnboardWidget> {
                       )),
                 ),
           SizedBox(
-            height: SizeConfig.sW! * 4,
+            height: SizeConfig.sH! * 4,
           ),
           AnimatedPositioned(
-            bottom: selected ? 45 : 100,
+            bottom: selected ? SizeConfig.sH! * 10 : SizeConfig.sH! * 15,
             duration: const Duration(seconds: 1),
             child: Text(
               widget.title!,
               style: theme.textTheme.headline5!.copyWith(
+                fontSize: 40,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
           AnimatedPositioned(
-            bottom: selected ? 0 : -30,
+            bottom: selected ? 25 : SizeConfig.sH! * -10,
             left: 45.0,
             right: 45,
             duration: const Duration(seconds: 1),
@@ -363,6 +385,7 @@ class _OnboardWidgetState extends State<OnboardWidget> {
               widget.description!,
               textAlign: TextAlign.center,
               style: theme.textTheme.bodyText2!.copyWith(
+                fontSize: 18,
                 color: const Color(0xFF626E75),
               ),
             ),

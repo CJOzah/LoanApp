@@ -13,6 +13,11 @@ class ThemeProvider extends ChangeNotifier {
 
 const primaryColor50 = Color(0xFFF3EFFF);
 const grey500 = Color(0xFF626E75);
+const grey400 = Color(0xFF93A5AF);
+
+const grey300 = Color(0xFFBAC9D1);
+
+
 
 class MyThemes {
   static final lightTheme = ThemeData(
@@ -26,7 +31,7 @@ class MyThemes {
     textTheme: const TextTheme().copyWith(
       bodyText1: const TextStyle(
         color: Colors.black,
-        fontSize: 14.0,
+        fontSize: 18.0,
         fontFamily: "Programme",
       ),
       bodyText2: const TextStyle(

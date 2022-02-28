@@ -1,10 +1,10 @@
 import 'package:credit_direct/theme/theme_provider.dart';
-import 'package:credit_direct/utils.dart';
+import 'package:credit_direct/utilities/utils.dart';
 import 'package:credit_direct/welcome_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../size_config.dart';
+import '../utilities/size_config.dart';
 
 class SignUpDetailsScreen extends StatefulWidget {
   static String id = "SignUpDetailsScreen";
@@ -64,7 +64,7 @@ class _SignUpDetailsScreenState extends State<SignUpDetailsScreen> {
                     .copyWith(fontSize: 40, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
-                height: 5,
+                height: 10,
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 40.0),
@@ -74,7 +74,7 @@ class _SignUpDetailsScreenState extends State<SignUpDetailsScreen> {
                 ),
               ),
               const SizedBox(
-                height: 40,
+                height: 60,
               ),
               RoundCustTextFieldWithIcon(
                   text: "First Name",
@@ -83,7 +83,7 @@ class _SignUpDetailsScreenState extends State<SignUpDetailsScreen> {
                   controller: controller,
                   theme: theme),
               const SizedBox(
-                height: 5,
+                height: 7,
               ),
               RoundCustTextFieldWithIcon(
                   text: "Last Name",
@@ -92,7 +92,7 @@ class _SignUpDetailsScreenState extends State<SignUpDetailsScreen> {
                   controller: controller,
                   theme: theme),
               const SizedBox(
-                height: 5,
+                height: 7,
               ),
               RoundCustTextFieldWithIcon(
                   text: "Email Addresss",
@@ -101,7 +101,7 @@ class _SignUpDetailsScreenState extends State<SignUpDetailsScreen> {
                   controller: controller,
                   theme: theme),
               const SizedBox(
-                height: 5,
+                height: 7,
               ),
               RoundCustTextFieldWithIcon(
                   text: "password",
@@ -110,10 +110,10 @@ class _SignUpDetailsScreenState extends State<SignUpDetailsScreen> {
                   controller: controller,
                   theme: theme),
               SizedBox(
-                height: SizeConfig.sW! * 10,
+                height: SizeConfig.sH! * 14,
               ),
               Buttons(
-                text: "Get Started",
+                text: "Confirm",
                 bgColor: theme.primaryColor,
                 textColor: Colors.white,
                 borderColor: Colors.transparent,
@@ -125,7 +125,7 @@ class _SignUpDetailsScreenState extends State<SignUpDetailsScreen> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                  top: SizeConfig.sW! * 10,
+                  top: SizeConfig.sH! * 5,
                 ),
                 child: Center(
                   child: Text(

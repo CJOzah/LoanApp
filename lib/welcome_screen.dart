@@ -1,9 +1,10 @@
+import 'package:credit_direct/utilities/nav_bar.dart';
 import 'package:credit_direct/theme/theme_provider.dart';
-import 'package:credit_direct/utils.dart';
+import 'package:credit_direct/utilities/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../size_config.dart';
+import 'utilities/size_config.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static String id = "WelcomeScreen";
@@ -27,12 +28,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       body: Container(
         height: double.infinity,
         padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage(
-                  "images/blue_bg_image.png",
-                ),
-                fit: BoxFit.cover)),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
@@ -64,20 +59,22 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     .copyWith(fontSize: 40, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
-                height: 5,
+                height: 15,
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 40.0),
                 child: Text(
                   "The future of fintech\nis now",
-                  style: theme.textTheme.bodyText2!,
+                  style: theme.textTheme.bodyText2!.copyWith(
+                    fontFamily: "Avenir Next LT Pro",
+                  ),
                 ),
               ),
               const SizedBox(
                 height: 40,
               ),
               SizedBox(
-                height: SizeConfig.sW! * 10,
+                height: SizeConfig.sH! * 10,
               ),
               Buttons(
                 text: "Sign in",
@@ -88,7 +85,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 width: double.infinity,
                 radius: 30.0,
                 borderStyle: BorderStyle.solid,
-                onPressed: () => Navigator.pushNamed(context, WelcomeScreen.id),
+                onPressed: () => Navigator.pushNamed(context, NavBar.id),
               ),
               SizedBox(
                 height: SizeConfig.sW! * 5,
@@ -102,15 +99,15 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 width: double.infinity,
                 radius: 30.0,
                 borderStyle: BorderStyle.solid,
-                onPressed: () => Navigator.pushNamed(context, WelcomeScreen.id),
+                onPressed: () {},
               ),
               Padding(
                 padding: EdgeInsets.only(
-                  top: SizeConfig.sW! * 40,
+                  top: SizeConfig.sH! * 28,
                 ),
                 child: Center(
                   child: Text(
-                    "About",
+                    "About Us",
                     style: theme.textTheme.bodyText1!.copyWith(
                         fontWeight: FontWeight.bold,
                         decoration: TextDecoration.underline),
